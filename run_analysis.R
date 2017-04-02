@@ -68,7 +68,8 @@ Y_subject_merged_dat$activity_label <- activity_labels
 colnames(combine_dat)[1:2] <- c("Subject", "Activity_ID")
 
 #####################################################
-#Q5 creates a second, independent tidy data set with the average 
+#Q5 From the data set in step 4, creates a second, 
+#independent tidy data set with the average 
 #of each variable for each activity and each subject.
 ######################################################
 
