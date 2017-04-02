@@ -40,12 +40,8 @@ colnames(X_merged_dat) <- as.character(features_dat[,2])
 subject_merged_dat <- rbind(subject_train_dat, subject_test_dat)
 # merge Y train and test
 Y_merged_dat <- rbind(Y_train_dat, Y_test_dat)
-# merge subject and Y
+# Create one data set from merge subject and Y
 Y_subject_merged_dat <- cbind(subject_merged_dat, Y_merged_dat)
-# Create one data set
-combine_dat <- cbind(Y_subject_merged_dat, X_merged_dat)
-colnames(combine_dat)[1:2] <- c("Subject", "Activity_ID")
-
 
 ##############################################
 #Q2 Extracts only the measurements on the mean 
@@ -61,6 +57,7 @@ X_mean_std_dat <- X_merged_dat[,Col_mean_std]
 #############################################
 
 activity_labels <- activity_labels_dat$V2[Y_subject_merged_dat[,2]]
+combine_dat <- cbind(Y_subject_merged_dat, X_merged_dat)
 
 #############################################
 #Q4 Appropriately labels the data set 
@@ -68,10 +65,10 @@ activity_labels <- activity_labels_dat$V2[Y_subject_merged_dat[,2]]
 #############################################
 
 Y_subject_merged_dat$activity_label <- activity_labels
+colnames(combine_dat)[1:2] <- c("Subject", "Activity_ID")
 
 #####################################################
-#Q5 From the data set in step 4, creates a second, 
-#independent tidy data set with the average 
+#Q5 creates a second, independent tidy data set with the average 
 #of each variable for each activity and each subject.
 ######################################################
 
