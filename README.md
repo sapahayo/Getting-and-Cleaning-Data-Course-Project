@@ -1,7 +1,16 @@
 # Getting and Cleaning Data Course Project
+
+in this README.md, contains about the repo describing how the script works and the code book describing the variables.
+
+below the steps:
 <ol>
+<li>Step 0, Download file </li>
+download file from https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip and extract it 
+
+using getwd() to check working directory. and then put downloded file in that directory. 
+it will make easier to locate the path file, using "./".
+
 <li>Step 1A, listed all files</li>
-firstly, using getwd() to check working directory. and then put downloded files in that directory. 
 define all files 
 
 Test files:
