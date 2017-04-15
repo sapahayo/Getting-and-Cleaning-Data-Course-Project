@@ -11,13 +11,13 @@ In this README.md, contains about the repo describing how the **script works** a
 
 below the steps:
 
-### Step 0, Download file
+### Step 0A, Download file
 Download file from https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip and extract it. 
 
 Using __getwd()__ to check working directory. and then put downloded file in that directory. 
 it will make easier to locate the path file, using "./". 
 
-### Step 1A, listed all files
+### Step 0B, listed all files
 
 #### Define all files 
 ##### Test files:
@@ -40,7 +40,7 @@ it will make easier to locate the path file, using "./".
 
 variable with prefix "f_", means for file path 
 
-### Step 1B,  load all files to memory
+### Step 0C,  load all files to memory
   
 #### Read the files :
 ##### Read test files
@@ -57,7 +57,7 @@ variable with prefix "f_", means for file path
 <ol><li>activity_labels_dat <- read.table(f_activity_labels)</li>
    <li>features_dat <- read.table(f_features)</li></ol>
   
-### Step 2, Merge test and training data set
+### Step 1, Merge test and training data set
 
 <p>In this step, files that already readed at step 1B will be merged using rbind and rbind.
 *for more detail regading rbind and cbind you can check using ?rbind or ?cbind. </p>
@@ -81,7 +81,7 @@ to check it, you can check based on dimension dim(X_test_dat), dim(X_train_dat) 
 <ol><li>Y_subject_merged_dat <- cbind(subject_merged_dat, Y_merged_dat)</li></ol>
 
   
-### Step 3, Extracts only the measurements on the mean and standard deviation for each measurement
+### Step 2, Extracts only the measurements on the mean and standard deviation for each measurement
 
 Using grep("mean()|std()",names(X_merged_dat)) to extracts **mean and standard deviation** from column names in X_merged_dat
   
@@ -94,7 +94,7 @@ and then get data from X_merged_dat which has column name in Col_mean_std
 ![result photo](X_mean_std_dat.PNG)
 
 
-### Step 4, Uses descriptive activity names to name the activities in the data set
+### Step 3, Uses descriptive activity names to name the activities in the data set
 
 Get and uses descriptive activity names.
   <ol><li>
@@ -102,14 +102,14 @@ activity_labels <- activity_labels_dat$V2[Y_subject_merged_dat[,2]]</li>
 <li>combine_dat <- cbind(Y_subject_merged_dat, X_merged_dat)
 </li></ol>
 
-### Step 5, Appropriately labels the data set with descriptive variable names.
+### Step 4, Appropriately labels the data set with descriptive variable names.
 
 Put labels to the data set with descriptive variable names.
   <ol><li>Y_subject_merged_dat$activity_label <- activity_labels</li>
 	<li>colnames(combine_dat)[1:2] <- c("Subject", "Activity_ID")</li></ol>
 
   
-### Step 6, Creates a second, independent tidy data set with the average of each variable for each activity and each subject
+### Step 5, Creates a second, independent tidy data set with the average of each variable for each activity and each subject
 
 Creating independent tidy data set with the **average of each variable for each activity and each subject** using _aggregate.data.frame_. 
 
