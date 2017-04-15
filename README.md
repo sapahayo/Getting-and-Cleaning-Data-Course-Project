@@ -57,7 +57,7 @@ variable with prefix "f_", means for file path
 #### Merge X train and test
 <ol><li>X_merged_dat <- rbind(X_test_dat, X_train_dat)</li></ol>
 
-#### Set column names by using features.txt
+#### Set column names using features.txt
 <ol><li>colnames(X_merged_dat) <- as.character(features_dat[,2])</li></ol>
 
 #### Merge subject
