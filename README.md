@@ -1,6 +1,6 @@
 # Getting and Cleaning Data Course Project
 
-The peer graded assignment in the Coursera course, "Getting and Cleaning Data" require :
+The peer graded assignment in the Coursera course, "Getting and Cleaning Data" requires :
 <ol><li>Tidy data set created in step 5 of the instructions</li>
 <li>Script (run_analysis.R)</li>
 <li>A README.md in the repo describing how the script works and the code book describing the variables</li></ol>
