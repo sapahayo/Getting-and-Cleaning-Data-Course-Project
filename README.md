@@ -76,7 +76,7 @@ to check it, you can check based on dimension dim(X_test_dat), dim(X_train_dat) 
   
 ### Step 3, Extracts only the measurements on the mean and standard deviation for each measurement
 
-Using grep("mean()|std()",names(X_merged_dat)) to extracts mean and standard deviation from column names in X_merged_dat
+Using grep("mean()|std()",names(X_merged_dat)) to extracts **mean and standard deviation** from column names in X_merged_dat
   
 		Col_mean_std <- grep("mean()|std()", names(X_merged_dat))
 
