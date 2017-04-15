@@ -1,26 +1,27 @@
-## Getting and Cleaning Data Course Project
+# Getting and Cleaning Data Course Project
 
 in this README.md, contains about the repo describing how the **script works** and the **code book** describing the variables.
 
 below the steps:
-### 1. Step 0, Download file
-download file from [https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip) and extract it 
 
-using _getwd()_ to check working directory. and then put downloded file in that directory. 
-it will make easier to locate the path file, using "./".
+### Step 0, Download file
+<b>download file from https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip and extract it. 
 
-### 2. Step 1A, listed all files
+Using __getwd()__ to check working directory. and then put downloded file in that directory. 
+it will make easier to locate the path file, using "./". </b>
+
+<li>Step 1A, listed all files</li>
 define all files 
 
-Test files:
-f_subject_test <- "./UCI HAR Dataset/test/subject_test.txt"
-f_X_test <- "./UCI HAR Dataset/test/X_test.txt"
-f_Y_test <- "./UCI HAR Dataset/test/y_test.txt"
-
+<ol>Test files:
+<li>f_subject_test <- "./UCI HAR Dataset/test/subject_test.txt"  </li>
+<li>f_X_test <- "./UCI HAR Dataset/test/X_test.txt" </li>
+<li>f_Y_test <- "./UCI HAR Dataset/test/y_test.txt" </li>
+</ol>
 Train Files:
-f_subject_train <-"./UCI HAR Dataset/train/subject_train.txt"
-f_X_train <- "./UCI HAR Dataset/train/X_train.txt"
-f_Y_train <- "./UCI HAR Dataset/train/y_train.txt"
+  f_subject_train <-"./UCI HAR Dataset/train/subject_train.txt"
+  f_X_train <- "./UCI HAR Dataset/train/X_train.txt"
+  f_Y_train <- "./UCI HAR Dataset/train/y_train.txt"
 
 Activity file:
 f_activity_labels <-"./UCI HAR Dataset/activity_labels.txt"
@@ -28,9 +29,9 @@ f_activity_labels <-"./UCI HAR Dataset/activity_labels.txt"
 Features file:
 f_features <- "./UCI HAR Dataset/features.txt"
 
-variable with prefix f, means for file path
+variable with prefix f_, means for file path
 
-### 3. Step 1B,  load all files to memory
+<li>Step 1B,  load all files to memory</li>
   
   read files
   #read test files
@@ -47,6 +48,8 @@ variable with prefix f, means for file path
   
   
 <li>Step 2, merge test and training data set</li>
+
+
 <li>Step 3, Extracts only the measurements on the mean and standard deviation for each measurement</li>
 <li>step 4, Uses descriptive activity names to name the activities in the data set</li>
 <li>step 5, Appropriately labels the data set with descriptive variable names. </li>
