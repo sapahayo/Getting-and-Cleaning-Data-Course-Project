@@ -1,6 +1,13 @@
 # Getting and Cleaning Data Course Project
 
-in this README.md, contains about the repo describing how the **script works** and the **code book** describing the variables.
+The peer graded assignment in the Coursera course, "Getting and Cleaning Data" require :
+<ol><li>Tidy data set created in step 5 of the instructions</li>
+<li>Script (run_analysis.R)</li>
+<li>A README.md in the repo describing how the script works and the code book describing the variables</li></ol>
+
+and all of them i put it in this Github repo
+
+In this README.md, contains about the repo describing how the **script works** and the **code book** describing the variables step by step, i hope this easy to understand.
 
 below the steps:
 
@@ -84,7 +91,9 @@ and then get data from X_merged_dat which has column name in Col_mean_std
 
 		X_mean_std_dat <- X_merged_dat [,Col_mean_std]
 
-  
+![result photo](X_mean_std_dat.PNG)
+
+
 ### Step 4, Uses descriptive activity names to name the activities in the data set
 
 Get and uses descriptive activity names.
