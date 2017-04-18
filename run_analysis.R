@@ -57,14 +57,15 @@ X_mean_std_dat <- X_merged_dat[,Col_mean_std]
 #############################################
 
 activity_labels <- activity_labels_dat$V2[Y_subject_merged_dat[,2]]
-combine_dat <- cbind(Y_subject_merged_dat, X_merged_dat)
+Y_subject_merged_dat$activity_label <- activity_labels
+
 
 #############################################
 #Q4 Appropriately labels the data set 
 #with descriptive variable names. 
 #############################################
 
-Y_subject_merged_dat$activity_label <- activity_labels
+combine_dat <- cbind(Y_subject_merged_dat, X_mean_std_dat)
 colnames(combine_dat)[1:2] <- c("Subject", "Activity_ID")
 
 #####################################################
@@ -74,8 +75,6 @@ colnames(combine_dat)[1:2] <- c("Subject", "Activity_ID")
 ######################################################
 
 
-avg_combine_dat <- aggregate.data.frame(combine_dat, list(combine_dat$Subject, combine_dat$activity_label), mean)[, c(-3: -5)]
+avg_combine_dat <- aggregate.data.frame(combine_dat, list(combine_dat$Subject, combine_dat$activity_label), mean)[, c(-3, -5)]
 colnames(avg_combine_dat)[1:2] <- c("Subject", "Activity_Label")
 write.table(avg_combine_dat,"average_Per_Subject.txt",row.names=FALSE)
-
-
