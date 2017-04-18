@@ -47,7 +47,7 @@ Y_subject_merged_dat <- cbind(subject_merged_dat, Y_merged_dat)
 #Q2 Extracts only the measurements on the mean 
 #and standard deviation for each measurement. 
 ##############################################
-Col_mean_std <- grep("mean()|std()", names(X_merged_dat))
+Col_mean_std <- grep("mean\\(\\)|std\\(\\)", names(X_merged_dat))
 X_mean_std_dat <- X_merged_dat[,Col_mean_std]
 
 
