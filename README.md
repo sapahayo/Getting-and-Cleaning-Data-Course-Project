@@ -86,7 +86,7 @@ Please find below result from View(X_merged_dat).
   
 ### Step 2, Extracts only the measurements on the mean and standard deviation for each measurement
 
-Using grep("mean\\(\\)|std\\(\\)", names(X_merged_dat)) to extracts **mean and standard deviation** from column names in X_merged_dat
+Using "grep" to extracts **mean and standard deviation** from column names in X_merged_dat
   
 		Col_mean_std <- grep("mean\\(\\)|std\\(\\)", names(X_merged_dat))
 
