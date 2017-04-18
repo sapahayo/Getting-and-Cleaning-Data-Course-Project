@@ -64,9 +64,12 @@ variable with prefix "f_", means for file path
 #### Merge X train and test
 <ol><li>X_merged_dat <- rbind(X_test_dat, X_train_dat)</li></ol>
 
+to check it, you can check based on dimension dim(X_test_dat), dim(X_train_dat) and dim(X_merged_dat). Also you can View one by one each variables.
+Please find below result from View(X_merged_dat).
+
+
 ![result photo](X_merged_dat.PNG)
 
-to check it, you can check based on dimension dim(X_test_dat), dim(X_train_dat) and dim(X_merged_dat). Also you can View one by one each variables.
 
 #### Set column names using features.txt
 <ol><li>colnames(X_merged_dat) <- as.character(features_dat[,2])</li></ol>
@@ -83,13 +86,16 @@ to check it, you can check based on dimension dim(X_test_dat), dim(X_train_dat) 
   
 ### Step 2, Extracts only the measurements on the mean and standard deviation for each measurement
 
-Using grep("mean()|std()",names(X_merged_dat)) to extracts **mean and standard deviation** from column names in X_merged_dat
+Using grep("mean\\(\\)|std\\(\\)", names(X_merged_dat)) to extracts **mean and standard deviation** from column names in X_merged_dat
   
-		Col_mean_std <- grep("mean()|std()", names(X_merged_dat))
+		Col_mean_std <- grep("mean\\(\\)|std\\(\\)", names(X_merged_dat))
 
 and then get data from X_merged_dat which has column name in Col_mean_std
 
 		X_mean_std_dat <- X_merged_dat [,Col_mean_std]
+
+
+Please find below result from View(X_mean_std_dat).
 
 ![result photo](X_mean_std_dat.PNG)
 
@@ -99,13 +105,13 @@ and then get data from X_merged_dat which has column name in Col_mean_std
 Get and uses descriptive activity names.
   <ol><li>
 activity_labels <- activity_labels_dat$V2[Y_subject_merged_dat[,2]]</li>
-<li>combine_dat <- cbind(Y_subject_merged_dat, X_merged_dat)
+<li>Y_subject_merged_dat$activity_label <- activity_labels
 </li></ol>
 
 ### Step 4, Appropriately labels the data set with descriptive variable names.
 
 Put labels to the data set with descriptive variable names.
-  <ol><li>Y_subject_merged_dat$activity_label <- activity_labels</li>
+  <ol><li>combine_dat <- cbind(Y_subject_merged_dat, X_mean_std_dat)</li>
 	<li>colnames(combine_dat)[1:2] <- c("Subject", "Activity_ID")</li></ol>
 
   
@@ -115,7 +121,7 @@ Creating independent tidy data set with the **average of each variable for each 
 
 Function aggregate.data.frame is the data frame method. If x is not a data frame, it is coerced to one, which must have a non-zero number of rows. Then, each of the variables (columns) in x is split into subsets of cases (rows) of identical combinations of the components of by, and FUN is applied to each such subset with further arguments in ... passed to it. The result is reformatted into a data frame containing the variables in by and x. The ones arising from by contain the unique combinations of grouping values used for determining the subsets, and the ones arising from x the corresponding summaries for the subset of the respective variables in x. If simplify is true, summaries are simplified to vectors or matrices if they have a common length of one or greater than one, respectively; otherwise, lists of summary results according to subsets are obtained. Rows with missing values in any of the by variables will be omitted from the result. (Note that versions of R prior to 2.11.0 required FUN to be a scalar function.).
 
-    avg_combine_dat <- aggregate.data.frame(combine_dat, list(combine_dat$Subject, combine_dat$activity_label), mean)[, c(-3: -5)]
+    avg_combine_dat <- aggregate.data.frame(combine_dat, list(combine_dat$Subject, combine_dat$activity_label), mean)[, c(-3, -5)]
  
 After we did aggregation, simply labeling with descriptive variable names.
 
